@@ -51,8 +51,8 @@ def dev_cartela(c, atual):
 #Essa função permite ao jogador a trocar a cartela dele     
 #    
 def troca_cartela(c,atual):
-    print('Favor responder a pergunta com S, s , Sim, sim ou em caso de não qualquer outro valor')
-    a = input('Você deseja trocar de cartela: ')
+    print('Favor responder a pergunta com S, s , Sim, sim ou enter para seguir adiante')
+    a = input('Você deseja trocar de cartela? ')
     a = a.lower()
     if a == 's' or a == 'sim':
         while True:
@@ -71,17 +71,10 @@ def troca_cartela(c,atual):
     else:
         return atual
 #Essa função sorteia o numero, verifica a existencia desse numero nas cartelas e se encontrar o numero troca por X para indicar q o numero ja foi sorteado
+def gera_lista_al(x,y):
+    return r.sample(range(x),k=y)
 
 def sorteio(c):
-    '''
-    n = r.randint(1,50)
-    for i in range(4):
-        for j in range(5):
-            if c[i][j] == n:
-                c[i][j] = 'X'
-            
-    return c
-    '''
     return gera_lista_al(50, 50)
 
 #essa função verifica o ganhador
@@ -122,7 +115,3 @@ def master():
         v.write(f'{a} - {pega_tempo()}')
         v.close()
     print('Fim do Bingo')
-def gera_lista_al(x,y):
-    return r.sample(range(x),k=y)
-cartela,atual = sorteia_cartela()
-print(sorteio(cartela))
